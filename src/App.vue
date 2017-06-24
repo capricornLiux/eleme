@@ -1,28 +1,49 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <hello></hello>
+    <!--<hello></hello>-->
+
+    <!--<div class="header">-->
+    <!--<header></header>-->
+    <!--</div>-->
+    <v-header></v-header>
+
+    <div class="tab">
+      <div class="tab-item">商品</div>
+      <div class="tab-item">评论</div>
+      <div class="tab-item">商家</div>
+    </div>
+
+    <div class="content">
+      content
+    </div>
+
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
-
-export default {
-  name: 'app',
-  components: {
-    Hello
-  }
-};
+  // import Hello from './components/Hello';
+  import header from './components/header/header.vue';
+  export default {
+    name: 'app',
+    components: {
+//    Hello
+      'v-header': header
+    }
+  };
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus" rel="stylesheet/stylus">
+
+    /*使用flex布局*/
+    #app
+      .tab
+        display: flex
+        width: 100%
+        height: 40px
+        line-height: 40px
+        .tab-item
+          flex: 1
+          text-align: center
+
 </style>
