@@ -54,5 +54,18 @@
         .tab-item
           flex: 1
           text-align: center
+          & > a
+            /*让字体的空白部分点击也有效果*/
+            display: block
+            font-size: 14px
+            color:rgb(77,85,93)
+            /*css样式重绘/重拍的规范*/
+            /*&.router-link-active
+              color:rgb(240,20,20)*/
+
+            /*使用手动配置的class进行激活状态设置*/
+            &.active
+              color:rgb(240,20,20)
+
 
 </style>

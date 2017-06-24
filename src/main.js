@@ -15,10 +15,17 @@ Vue.use(VueRouter);
 
 // 创建路由配置对象
 let router = new VueRouter({
+  // 配置激活类名, 原始类名会被替换
+  linkActiveClass: 'active',
   mode: 'history',
 
   // 配置路由map
   routes: [
+    // 将/重定向到/goods, 打开页面, 默认就加载goods商品页面
+    {
+      path: '/',
+      redirect: '/goods'
+    },
     {
       path: '/goods',
       component: goods
