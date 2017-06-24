@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="wrap">
     <!--<img src="./assets/logo.png">-->
     <!--<hello></hello>-->
 
@@ -9,14 +9,23 @@
     <v-header></v-header>
 
     <div class="tab">
-      <div class="tab-item">商品</div>
-      <div class="tab-item">评论</div>
-      <div class="tab-item">商家</div>
+      <div class="tab-item">
+        <router-link to="/goods">商品</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/ratings">评论</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/seller">商家</router-link>
+      </div>
     </div>
 
-    <div class="content">
-      content
-    </div>
+    <!--<div class="content">-->
+      <!--content-->
+    <!--</div>-->
+
+    <!--使用路由出口-->
+    <router-view></router-view>
 
   </div>
 </template>
@@ -36,7 +45,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
 
     /*使用flex布局*/
-    #app
+    .wrap
       .tab
         display: flex
         width: 100%
