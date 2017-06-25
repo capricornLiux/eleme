@@ -8,7 +8,7 @@
     <!--</div>-->
     <v-header></v-header>
 
-    <div class="tab">
+    <div class="tab border-1px">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
       </div>
@@ -44,6 +44,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
 
+  // 导入mixin
+  @import "./common/stylus/mixin.styl"
+
     /*使用flex布局*/
     .wrap
       .tab
@@ -51,6 +54,12 @@
         width: 100%
         height: 40px
         line-height: 40px
+        /*border-bottom: 1px solid black*/
+
+        /*使用mixin*/
+        // border-1px(rgba(7,17,27,0.1))
+        border-1px(red)
+
         .tab-item
           flex: 1
           text-align: center
