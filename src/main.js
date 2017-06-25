@@ -5,6 +5,9 @@ import App from './App';
 // import的名称为该第三方模块的package.json中的name属性
 import VueRouter from 'vue-router';
 
+// 导入vue-resource
+import VueResource from 'vue-resource';
+
 // 导入底部的三个组件
 import goods from './components/goods/goods.vue';
 import ratings from './components/ratings/ratings.vue';
@@ -15,6 +18,9 @@ import './common/stylus/index.styl';
 
 // 注册vue-router
 Vue.use(VueRouter);
+
+// 注册vue-resource
+Vue.use(VueResource);
 
 // 创建路由配置对象
 let router = new VueRouter({
