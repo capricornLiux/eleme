@@ -24,6 +24,9 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     // 强制添加分号检查
-    'semi':['error','always']
+    'semi':['error','always'],
+
+    // 添加函数名称和参数之间的空格
+    'space-before-function-paren':0
   }
 }
