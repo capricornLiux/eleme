@@ -6,7 +6,7 @@
     <!--<div class="header">-->
     <!--<header></header>-->
     <!--</div>-->
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
 
     <div class="tab border-1px">
       <div class="tab-item">
@@ -53,13 +53,15 @@
     // 使用生命周期函数
     mounted() {
       this.$http.get('/api/seller').then((res) => {
-        console.log(res);
-        console.log(res.json());
-        console.log(res.data);
+//        console.log(res);
+//        console.log(res.json());
+//        console.log(res.data.data);
+//        res.data.error.log
 
         // 判断错误码
-        if (res.data.error === ERROR_OK) {
+        if (res.data.errno === ERROR_OK) {
           // 正确
+          console.log('test');
           this.seller = res.data.data;
         }
       });
