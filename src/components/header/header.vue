@@ -53,14 +53,35 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+
+  /*导入stylus*/
+  @import "../../common/stylus/mixin.styl"
+  /*css这里不能设置路径简写, js部分是可以的*/
+
   .header
-    color:rgb(255,255,255)
+    color: rgb(255, 255, 255)
     background-color: #000
     .content-wrapper
-      padding :24px 12px 18px 24px
+      padding: 24px 12px 18px 24px
+
+      /*解决头像和右侧文字之间有间隔空隙的问题, 设置父元素的字体大小为0(因为有空白字符导致的空隙问题)*/
+      font-size: 0
       .avatar
         display: inline-block
       .content
         display: inline-block
+        font-size: 14px
+        margin-left: 16px
+        .title
+          margin-top: 2px
+          margin-bottom: 8px
+          .brand
+            display: inline-block
+            width: 30px
+            height: 18px
+            bg-image("brand")
+            /*还需要指定size和repeat*/
+            background-size: 30px 18px
+            background-repeat: no-repeat
 
 </style>
