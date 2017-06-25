@@ -22,8 +22,8 @@
         <!--商家信息-->
         <div class="desc">{{seller.description}}/{{seller.deliveryTime}}分钟送达</div>
         <div v-if="seller.supports" class="supports">
-          <span class="icon"></span>
-          <span class="test">{{seller.supports[0].description}}</span>
+          <span class="icon" :class="classMap[seller.supports[0].type]"></span>
+          <span class="text">{{seller.supports[0].description}}</span>
         </div>
         <!--商家信息结束-->
 
@@ -48,6 +48,10 @@
       seller: {
         type: Object
       }
+    },
+
+    mounted() {
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
     }
   };
 </script>
@@ -68,20 +72,58 @@
       font-size: 0
       .avatar
         display: inline-block
+        vertical-align: top
+        img
+          border-radius: 2px
       .content
         display: inline-block
-        font-size: 14px
+        /*font-size: 14px*/
         margin-left: 16px
         .title
           margin-top: 2px
           margin-bottom: 8px
           .brand
             display: inline-block
+            vertical-align: top
             width: 30px
             height: 18px
             bg-image("brand")
             /*还需要指定size和repeat*/
             background-size: 30px 18px
             background-repeat: no-repeat
-
+          .name
+            font-size: 16px
+            font-weight: bold
+            line-height: 18px
+            margin-left: 6px
+        .desc
+          /*margin-top: 8px*/
+          margin-bottom: 10px
+          font-size: 12px
+          line-height: 12px
+        .supports
+          /*display: inline-block*/
+          .icon
+            display: inline-block
+            vertical-align: top
+            width: 12px
+            height: 12px
+            margin-right: 4px
+            /*font-size: 10px*/
+            /*line-height: 12px*/
+            background-size: 12px 12px
+            background-repeat: no-repeat
+            &.decrease
+              bg-image('decrease_1')
+            &.discount
+              bg-image('discount_1')
+            &.guarantee
+              bg-image('guarantee_1')
+            &.invoice
+              bg-image('invoice_1')
+            &.special
+              bg-image('special_1')
+          .text
+            font-size: 10px
+            line-height: 12px
 </style>
