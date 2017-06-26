@@ -100,7 +100,7 @@
 
         </div>
       </div>
-      <div class="detail-close">
+      <div class="detail-close" @click="closeDetail">
         <i class="icon-close"></i>
       </div>
       <!--使用css sticky footer布局结束-->
@@ -141,6 +141,9 @@
     methods: {
       showDetail() {
         this.detailShow = true;
+      },
+      closeDetail() {
+        this.detailShow = false;
       }
     }
 
@@ -290,6 +293,7 @@
       height: 100%
       overflow: auto
       background-color: rgba(7, 17, 27, 0.8)
+      -webkit-backdrop-filter :blur(2px)
       .detail-wrapper
         width: 100%
         min-height: 100%
