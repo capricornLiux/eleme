@@ -70,10 +70,31 @@
           <!--优惠信息-->
           <div class="title">
             <div class="line"></div>
-            <div class="text">商家公告</div>
+            <div class="text">优惠信息</div>
             <div class="line"></div>
           </div>
           <!--优惠信息结束-->
+
+          <!--优惠信息内容-->
+          <ul v-if="seller.supports" class="supports">
+            <li class="support-item" v-for="(item,index) in seller.supports">
+              <span class="icon" :class="classMap[index]"></span>
+              <span class="text">{{item.description}}</span>
+            </li>
+          </ul>
+          <!--优惠信息内容结束-->
+
+          <!--商家公告-->
+          <div class="title">
+            <div class="line"></div>
+            <div class="text">商家公告</div>
+            <div class="line"></div>
+          </div>
+          <!--商家公告结束-->
+
+          <!--商家公告内容-->
+
+          <!--商家公告内容结束-->
 
         </div>
       </div>
@@ -299,6 +320,39 @@
               padding:0 12px
               font-weight: 700
               font-size: 14px
+          .supports
+            width: 80%
+            margin: 0 auto
+            padding:0 12px
+            box-sizing :border-box
+            font-size: 0
+            .support-item
+              height: 16px
+              margin-bottom: 12px
+              .icon
+                display: inline-block
+                width: 16px
+                height: 16px
+                background-size :16px 16px
+                background-repeat :no-repeat
+                vertical-align: top
+                margin-right: 6px
+                &.decrease
+                  bg-image('decrease_2')
+                &.discount
+                  bg-image('discount_2')
+                &.guarantee
+                  bg-image('guarantee_2')
+                &.invoice
+                  bg-image('invoice_2')
+                &.special
+                  bg-image('special_2')
+              .text
+                /*vertical-align: */
+                font-size: 12px
+                font-weight: 200
+                line-height: 16px
+
       .detail-close
         position: relative
         width: 32px
