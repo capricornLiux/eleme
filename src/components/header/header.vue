@@ -32,7 +32,7 @@
       <!--右侧内容结束-->
 
       <!--商家支持内容-->
-      <div class="support-count" v-if="seller.supports">
+      <div class="support-count" v-if="seller.supports" @click="showDetail">
         <span class="count">{{seller.supports.length}}个</span>
         <i class="icon-keyboard_arrow_right"></i>
       </div>
@@ -42,7 +42,7 @@
     <!--内容结束-->
 
     <!--新闻公告-->
-    <div class="bulletin-wrapper">
+    <div class="bulletin-wrapper" @click="showDetail">
       <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
@@ -53,6 +53,12 @@
       <img :src="seller.avatar" width="100%" height="100%">
     </div>
     <!--头部背景结束-->
+
+    <!--商家简介-->
+    <div class="detail" v-show="detailShow">
+
+    </div>
+    <!--商家简介结束-->
 
   </div>
 </template>
@@ -68,7 +74,20 @@
 
     mounted() {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+    },
+
+    data() {
+      return {
+        detailShow: false
+      };
+    },
+
+    methods: {
+      showDetail() {
+        this.detailShow = true;
+      }
     }
+
   };
 </script>
 
@@ -82,6 +101,7 @@
     position: relative
     color: rgb(255, 255, 255)
     background-color: rgba(7, 17, 27, 0.5);
+    overflow: hidden
     .content-wrapper
       padding: 24px 12px 18px 24px
 
@@ -205,4 +225,13 @@
       width: 100%
       height: 100%
       filter: blur(5px)
+    .detail
+      position: fixed
+      top: 0
+      left: 0
+      z-index: 100
+      width: 100%
+      height: 100%
+      overflow: auto
+      background-color: rgba(7, 17, 27, 0.8)
 </style>
