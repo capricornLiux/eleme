@@ -56,7 +56,16 @@
 
     <!--商家简介-->
     <div class="detail" v-show="detailShow">
-
+      <!--使用css sticky footer布局-->
+      <div class="detail-wrapper clearfix">
+        <div class="detail-main">
+          <h1>{{seller.name}}</h1>
+        </div>
+      </div>
+      <div class="detail-close">
+        <i class="icon-close"></i>
+      </div>
+      <!--使用css sticky footer布局结束-->
     </div>
     <!--商家简介结束-->
 
@@ -234,4 +243,19 @@
       height: 100%
       overflow: auto
       background-color: rgba(7, 17, 27, 0.8)
+      .detail-wrapper
+        width: 100%
+        min-height: 100%
+        .detail-main
+          margin-top: 64px
+          padding-bottom: 64px
+          text-align: center
+      .detail-close
+        position: relative
+        width: 32px
+        height: 32px
+        margin: -64px auto 0 auto
+        clear:both
+        font-size: 32px
+
 </style>
