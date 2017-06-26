@@ -67,6 +67,14 @@
           </div>
           <!--使用自定义星星组件结束-->
 
+          <!--优惠信息-->
+          <div class="title">
+            <div class="line"></div>
+            <div class="text">商家公告</div>
+            <div class="line"></div>
+          </div>
+          <!--优惠信息结束-->
+
         </div>
       </div>
       <div class="detail-close">
@@ -265,11 +273,32 @@
         .detail-main
           margin-top: 64px
           padding-bottom: 64px
-          text-align: center
+          /*text-align: center*/
+          .name
+            font-size: 16px
+            line-height: 16px
+            font-weight: 700
+            text-align: center
           .star-wrapper
             margin-top: 16px
-            margin-bottom: 28px
+            /*margin-bottom: 28px*/
             text-align: center
+          .title
+            display: flex
+            width: 80%
+            margin-top: 28px
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 24px
+            .line
+              flex: 1
+              position: relative
+              top: -6px
+              border-bottom: 1px solid rgba(255,255,255,0.2)
+            .text
+              padding:0 12px
+              font-weight: 700
+              font-size: 14px
       .detail-close
         position: relative
         width: 32px
