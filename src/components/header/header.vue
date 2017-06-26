@@ -93,7 +93,9 @@
           <!--商家公告结束-->
 
           <!--商家公告内容-->
-
+          <div class="bulletin">
+            <p class="content">{{seller.bulletin}}</p>
+          </div>
           <!--商家公告内容结束-->
 
         </div>
@@ -352,6 +354,16 @@
                 font-size: 12px
                 font-weight: 200
                 line-height: 16px
+
+          .bulletin
+            width: 80%
+            margin: 0 auto
+            box-sizing: border-box
+            padding:0 12px
+            .content
+              font-size: 12px
+              font-weight: 200
+              line-height: 24px
 
       .detail-close
         position: relative
