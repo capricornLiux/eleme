@@ -59,7 +59,14 @@
       <!--使用css sticky footer布局-->
       <div class="detail-wrapper clearfix">
         <div class="detail-main">
-          <h1>{{seller.name}}</h1>
+          <h1 class="name">{{seller.name}}</h1>
+
+          <!--使用自定义星星组件-->
+          <div class="star-wrapper">
+            <star :size="48" :score="seller.score"></star>
+          </div>
+          <!--使用自定义星星组件结束-->
+
         </div>
       </div>
       <div class="detail-close">
@@ -73,7 +80,16 @@
 </template>
 
 <script type="text/ecmascript-6">
+
+  // 导入评分星星组件
+  import star from '../star/star.vue';
+
   export default {
+
+    components: {
+      star
+    },
+
     // 接收父组件传递的数据
     props: {
       seller: {
@@ -250,12 +266,16 @@
           margin-top: 64px
           padding-bottom: 64px
           text-align: center
+          .star-wrapper
+            margin-top: 16px
+            margin-bottom: 28px
+            text-align: center
       .detail-close
         position: relative
         width: 32px
         height: 32px
         margin: -64px auto 0 auto
-        clear:both
+        clear: both
         font-size: 32px
 
 </style>

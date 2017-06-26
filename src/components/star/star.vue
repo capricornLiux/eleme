@@ -55,7 +55,7 @@
         while (result.length < LENGTH) {
           // 说明还有不足的星星
           result.push(CLASS_OFF);
-          result.length++;
+//          result.length++;
         }
         return result;
       }
@@ -84,6 +84,8 @@
           bg-image('star24_half');
         &.off
           bg-image('star24_off');
+        &:last-child
+          margin-right: 0
     &.star-36
       .star-item
         width:15px
@@ -96,6 +98,8 @@
           bg-image('star36_half');
         &.off
           bg-image('star36_off');
+        &:last-child
+          margin-right: 0
     &.star-48
       .star-item
         width:20px
@@ -108,4 +112,6 @@
           bg-image('star48_half');
         &.off
           bg-image('star48_off');
+        &:last-child
+          margin-right: 0
 </style>
