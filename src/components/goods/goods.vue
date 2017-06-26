@@ -1,11 +1,49 @@
 <template>
-  <p>goods</p>
+  <div class="goods">
+    <div class="menu-wrapper">
+
+    </div>
+    <div class="foods-wrapper"></div>
+  </div>
 </template>
 
 <script>
-  export default {};
+  export default {
+    props: {
+      seller: {},
+      type: Object
+    },
+
+    data() {
+      return {
+        goods: []
+      };
+    },
+
+    mounted() {
+      this.$http.get('/api/goods').then((res) => {
+        if (res.data.errno === 0) {
+          this.goods = res.data.data;
+          console.log(this.goods);
+        }
+      });
+    }
+  };
 </script>
 
-<style>
+<style lang="stylus" rel="stylesheet/stylus">
+  .goods
+    display: flex
+    position: absolute
+    top: 174px
+    bottom: 46px
+    width: 100%
+    overflow: hidden
+    .menu-wrapper
+      flex: 0 0 80px
+      width: 80px
+      background-color: #f3f5f7
+    .foods-wrapper
+      flex: 1
 
 </style>
