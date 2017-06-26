@@ -12,16 +12,26 @@
     <div class="foods-wrapper">
       <ul>
         <li v-for="type in goods" class="foods-list">
+          <!--一类食品标题-->
           <h1 class="type-title">{{type.name}}</h1>
+          <!--一类食品标题结束-->
+
+          <!--一类食品列表-->
           <ul>
             <li v-for="food in type.foods" class="food-item">
+
+              <!--左侧图片-->
               <div class="icon">
-                <img :src="food.icon">
+                <img :src="food.icon" width="56" height="56">
                 <!--<img :src="food.image">-->
               </div>
+              <!--左侧图片结束-->
+
+              <!--右侧内容-->
               <div class="content">
                 <h2 class="name">{{food.name}}</h2>
                 <p class="desc">{{food.description}}</p>
+
                 <!--商品额外信息 月销,好评-->
                 <div class="extra">
                   <span class="count">月销{{food.sellCount}}份</span>
@@ -29,9 +39,18 @@
                 </div>
                 <!--商品额外信息 月销,好评 结束-->
 
+                <!--商品价格-->
+                <div class="price">
+                  <span class="now-price">&yen;{{food.price}}</span>
+                  <span v-if="food.oldPrice" class="old-price">&yen;{{food.oldPrice}}</span>
+                </div>
+                <!--商品价格结束-->
+
               </div>
+              <!--右侧内容结束-->
             </li>
           </ul>
+          <!--一类食品列表结束-->
         </li>
       </ul>
     </div>
@@ -92,7 +111,7 @@
             /*display: table*/
             vertical-align: middle
             font-size: 12px
-            color: rgb(8,18,26)
+            color: rgb(8, 18, 26)
             font-weight: 200
             line-height: 14px
             .icon
@@ -101,8 +120,8 @@
               width: 12px
               height: 12px
               margin-right: 2px
-              background-size :12px 12px
-              background-repeat :no-repeat
+              background-size: 12px 12px
+              background-repeat: no-repeat
               &.decrease
                 bg-image('decrease_3')
               &.discount
@@ -116,5 +135,53 @@
 
     .foods-wrapper
       flex: 1
+      .foods-list
+        .type-title
+          font-size: 12px
+          color: rgb(147, 153, 159)
+          line-height: 26px
+          padding-left: 14px
+          background-color: #f3f5f7
+          border-left: 1px solid #d9dde1
+        .food-item
+          display: flex
+          padding: 18px
+          .icon
+            flex :0 0 56px
+            margin-right: 10px
+          .content
+            flex:1
+            vertical-align: top
+            .name
+              font-size: 14px
+              line-height: 14px
+              color: rgb(7,17,27)
+              margin: 2px 0 8px 0
+            .desc
+              font-size: 10px
+              line-height: 10px
+              color:rgb(147,153,159)
+              margin-top: 8px
+            .extra
+              margin-top: 8px
+              /*margin-bottom: 8px*/
+              span
+                display: inline-block
+                font-size: 10px
+                line-height: 10px
+                color:rgb(147,153,159)
+            .price
+              span
+                font-weight: 700
+                line-height: 24px
+              .now-price
+                margin-right: 8px
+                font-size: 14px
+                color:rgb(240,20,20)
+
+              .old-price
+                font-size: 10px
+                color:rgb(147,153,159)
+
 
 </style>
