@@ -55,56 +55,59 @@
     <!--头部背景结束-->
 
     <!--商家简介-->
-    <div class="detail" v-show="detailShow">
-      <!--使用css sticky footer布局-->
-      <div class="detail-wrapper clearfix">
-        <div class="detail-main">
-          <h1 class="name">{{seller.name}}</h1>
+    <transition name="detail-fade">
+      <div class="detail" v-show="detailShow">
+        <!--使用css sticky footer布局-->
+        <div class="detail-wrapper clearfix">
+          <div class="detail-main">
+            <h1 class="name">{{seller.name}}</h1>
 
-          <!--使用自定义星星组件-->
-          <div class="star-wrapper">
-            <star :size="48" :score="seller.score"></star>
+            <!--使用自定义星星组件-->
+            <div class="star-wrapper">
+              <star :size="48" :score="seller.score"></star>
+            </div>
+            <!--使用自定义星星组件结束-->
+
+            <!--优惠信息-->
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">优惠信息</div>
+              <div class="line"></div>
+            </div>
+            <!--优惠信息结束-->
+
+            <!--优惠信息内容-->
+            <ul v-if="seller.supports" class="supports">
+              <li class="support-item" v-for="(item,index) in seller.supports">
+                <span class="icon" :class="classMap[index]"></span>
+                <span class="text">{{item.description}}</span>
+              </li>
+            </ul>
+            <!--优惠信息内容结束-->
+
+            <!--商家公告-->
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">商家公告</div>
+              <div class="line"></div>
+            </div>
+            <!--商家公告结束-->
+
+            <!--商家公告内容-->
+            <div class="bulletin">
+              <p class="content">{{seller.bulletin}}</p>
+            </div>
+            <!--商家公告内容结束-->
+
           </div>
-          <!--使用自定义星星组件结束-->
-
-          <!--优惠信息-->
-          <div class="title">
-            <div class="line"></div>
-            <div class="text">优惠信息</div>
-            <div class="line"></div>
-          </div>
-          <!--优惠信息结束-->
-
-          <!--优惠信息内容-->
-          <ul v-if="seller.supports" class="supports">
-            <li class="support-item" v-for="(item,index) in seller.supports">
-              <span class="icon" :class="classMap[index]"></span>
-              <span class="text">{{item.description}}</span>
-            </li>
-          </ul>
-          <!--优惠信息内容结束-->
-
-          <!--商家公告-->
-          <div class="title">
-            <div class="line"></div>
-            <div class="text">商家公告</div>
-            <div class="line"></div>
-          </div>
-          <!--商家公告结束-->
-
-          <!--商家公告内容-->
-          <div class="bulletin">
-            <p class="content">{{seller.bulletin}}</p>
-          </div>
-          <!--商家公告内容结束-->
-
         </div>
+        <div class="detail-close" @click="closeDetail">
+          <i class="icon-close"></i>
+        </div>
+        <!--使用css sticky footer布局结束-->
       </div>
-      <div class="detail-close" @click="closeDetail">
-        <i class="icon-close"></i>
-      </div>
-      <!--使用css sticky footer布局结束-->
-    </div>
+    </transition>
+
     <!--商家简介结束-->
 
   </div>
@@ -155,6 +158,19 @@
   /*导入stylus*/
   @import "../../common/stylus/mixin.styl"
   /*css这里不能设置路径简写, js部分是可以的*/
+
+  .detail-fade-enter-active {
+    transition: all .3s
+  }
+  .detail-fade-leave-active {
+    transition: all .3s
+    opacity:1
+    background-color :rgba(7,17,27,0.8)
+  }
+  .detail-fade-enter, .detail-fade-leave-active {
+    opacity: 0;
+  }
+
 
   .header
     position: relative
