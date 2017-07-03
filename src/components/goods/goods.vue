@@ -9,6 +9,7 @@
         </li>
       </ul>
     </div>
+
     <div class="foods-wrapper" ref="foodswrapper">
       <ul>
         <li v-for="type in goods" class="foods-list food-list-hook">
@@ -53,6 +54,9 @@
         </li>
       </ul>
     </div>
+
+    <!--使用自定的购物车组件-->
+    <shopcart></shopcart>
   </div>
 </template>
 
@@ -60,7 +64,13 @@
 
   import BScroll from 'better-scroll';
 
+  // 导入购物车组件
+  import shopcart from '../shopcart/shopcart.vue';
+
   export default {
+    components: {
+      shopcart
+    },
     props: {
       seller: {},
       type: Object
