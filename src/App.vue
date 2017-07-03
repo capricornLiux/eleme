@@ -25,7 +25,9 @@
     <!--</div>-->
 
     <!--使用路由出口-->
-    <router-view></router-view>
+    <keep-alive>
+      <router-view :seller="seller"></router-view>
+    </keep-alive>
 
   </div>
 </template>

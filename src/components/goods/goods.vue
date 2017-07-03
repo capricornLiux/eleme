@@ -56,7 +56,7 @@
     </div>
 
     <!--使用自定的购物车组件-->
-    <shopcart></shopcart>
+    <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 

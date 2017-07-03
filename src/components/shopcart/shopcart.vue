@@ -20,7 +20,7 @@
 
         <!--描述-->
         <!--提示起送费等等-->
-        <div class="desc">另需配送费&yen;8</div>
+        <div class="desc">另需配送费&yen;{{deliveryPrice}}</div>
         <!--描述结束-->
       </div>
       <!--左侧结束-->
@@ -28,7 +28,7 @@
 
       <!--右侧按钮, 宽度固定-->
       <div class="content-right">
-        <div class="pay">&yen;20起送</div>
+        <div class="pay">&yen;{{minPrice}}起送</div>
       </div>
       <!--右侧按钮, 宽度固定结束-->
 
@@ -37,7 +37,17 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {};
+  export default {
+    // 接收父组件传递的数据
+    props: {
+      deliveryPrice: {
+        type: Number
+      },
+      minPrice: {
+        type: Number
+      }
+    }
+  };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
