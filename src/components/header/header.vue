@@ -107,7 +107,6 @@
         <!--使用css sticky footer布局结束-->
       </div>
     </transition>
-
     <!--商家简介结束-->
 
   </div>

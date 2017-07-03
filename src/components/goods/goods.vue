@@ -34,8 +34,7 @@
 
                 <!--商品额外信息 月销,好评-->
                 <div class="extra">
-                  <span class="count">月销{{food.sellCount}}份</span>
-                  <span class="rating">好评率{{food.rating}}%</span>
+                  <span class="count">月销{{food.sellCount}}份</span><span class="rating">好评率{{food.rating}}%</span>
                 </div>
                 <!--商品额外信息 月销,好评 结束-->
 
@@ -145,31 +144,35 @@
           border-left: 1px solid #d9dde1
         .food-item
           display: flex
-          padding: 18px
+          /*padding: 18px*/
+          margin: 18px
+          padding-bottom: 18px
+          border-1px(rgba(7,17,27,0.1))
+          &:last-child
+            border-none()
+            margin-bottom : 0
           .icon
             flex :0 0 56px
             margin-right: 10px
           .content
             flex:1
-            vertical-align: top
+            /*vertical-align: top*/
             .name
-              font-size: 14px
-              line-height: 14px
-              color: rgb(7,17,27)
               margin: 2px 0 8px 0
-            .desc
-              font-size: 10px
+              height: 14px
+              line-height: 14px
+              font-size: 14px
+              color: rgb(7,17,27)
+            .desc, .extra
               line-height: 10px
+              font-size: 10px
               color:rgb(147,153,159)
-              margin-top: 8px
+            .desc
+              line-height: 12px
+              margin-bottom: 8px
             .extra
-              margin-top: 8px
-              /*margin-bottom: 8px*/
-              span
-                display: inline-block
-                font-size: 10px
-                line-height: 10px
-                color:rgb(147,153,159)
+              .count
+                margin-right: 12px
             .price
               span
                 font-weight: 700
@@ -178,8 +181,8 @@
                 margin-right: 8px
                 font-size: 14px
                 color:rgb(240,20,20)
-
               .old-price
+                text-decoration: line-through
                 font-size: 10px
                 color:rgb(147,153,159)
 
