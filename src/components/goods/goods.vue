@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <div class="menu-wrapper">
+    <div class="menu-wrapper" ref="menuwrapper">
       <ul class="menu-list">
         <li class="menu-item" v-for="item in goods">
           <span class="text">
@@ -9,7 +9,7 @@
         </li>
       </ul>
     </div>
-    <div class="foods-wrapper">
+    <div class="foods-wrapper" ref="foodswrapper">
       <ul>
         <li v-for="type in goods" class="foods-list">
           <!--一类食品标题-->
@@ -57,6 +57,9 @@
 </template>
 
 <script>
+
+  import BScroll from 'better-scroll';
+
   export default {
     props: {
       seller: {},
@@ -74,9 +77,23 @@
       this.$http.get('/api/goods').then((res) => {
         if (res.data.errno === 0) {
           this.goods = res.data.data;
-          console.log(this.goods);
+//          console.log(this.goods);
+
+          // 初始化的时候, vue更新dom的时候是异步的, 只有在nextTick方法中才会执行
+          this.$nextTick(() => {
+            this._initScroll();
+          });
         }
       });
+    },
+
+    methods: {
+      // 调用滚动方法
+      _initScroll() {
+        this.menuScroll = new BScroll(this.$refs.menuwrapper, {});
+
+        this.foodsScroll = new BScroll(this.$refs.foodswrapper, {});
+      }
     }
   };
 </script>
@@ -147,26 +164,26 @@
           /*padding: 18px*/
           margin: 18px
           padding-bottom: 18px
-          border-1px(rgba(7,17,27,0.1))
+          border-1px(rgba(7, 17, 27, 0.1))
           &:last-child
             border-none()
-            margin-bottom : 0
+            margin-bottom: 0
           .icon
-            flex :0 0 56px
+            flex: 0 0 56px
             margin-right: 10px
           .content
-            flex:1
+            flex: 1
             /*vertical-align: top*/
             .name
               margin: 2px 0 8px 0
               height: 14px
               line-height: 14px
               font-size: 14px
-              color: rgb(7,17,27)
+              color: rgb(7, 17, 27)
             .desc, .extra
               line-height: 10px
               font-size: 10px
-              color:rgb(147,153,159)
+              color: rgb(147, 153, 159)
             .desc
               line-height: 12px
               margin-bottom: 8px
@@ -180,11 +197,11 @@
               .now-price
                 margin-right: 8px
                 font-size: 14px
-                color:rgb(240,20,20)
+                color: rgb(240, 20, 20)
               .old-price
                 text-decoration: line-through
                 font-size: 10px
-                color:rgb(147,153,159)
+                color: rgb(147, 153, 159)
 
 
 </style>
